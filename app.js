@@ -151,5 +151,5 @@ app.use('/', index);
 
 const authRoutes = require('./routes/auth-routes')
 app.use('/', authRoutes)
-
+console.log("Hola esto es una prueba");
 module.exports = app;
