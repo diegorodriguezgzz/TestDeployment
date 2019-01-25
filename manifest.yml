@@ -1,0 +1,11 @@
+# Quiero tanta memoria
+# Quiero tales instancias
+# Vas a ejecutar la aplicación con este comando
+---
+  applications:
+  - instances: 1
+    name: sociallogindiego
+    memory: 128M
+    domain: mybluemix.net #Aquí puede ser algo como diegordz.com de tal manera que sea
+    host: sociallogindiego
+    #sociallogindiego.mybluemix.net
