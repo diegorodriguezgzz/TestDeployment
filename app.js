@@ -12,10 +12,11 @@ const session      = require('express-session')
 const bcrypt       = require('bcrypt')
 const passport     = require('passport')
 const LocalStrategy = require('passport-local').Strategy
-const User         = require('./models/user')
-const flash        = require('connect-flash')
 const SlackStrategy = require('passport-slack').Strategy;
 const GoogleStrategy = require("passport-google-oauth").OAuth2Strategy;
+const User         = require('./models/user')
+const flash        = require('connect-flash')
+const MongoStore   =  require("connect-mongo")(session);
 
 mongoose
   .connect(process.env.MONGODB, {useNewUrlParser: true})
@@ -39,8 +40,9 @@ app.use(cookieParser());
 app.use(session({
   secret: 'jafsjlafsjopafsjpofañnafslnkafsñklasf',
   resave: true,
-  saveUninitialized: true
-}))
+  saveUninitialized: true,
+  store: new MongoStore({ mongooseConnection : mongoose.connection})
+}));
 
 passport.use(new GoogleStrategy({
   clientID: "504011122719-old7feiesrpoaiqkec9438cpoius2l1i.apps.googleusercontent.com",

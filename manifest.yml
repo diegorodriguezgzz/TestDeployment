@@ -5,7 +5,9 @@
   applications:
   - instances: 1
     name: sociallogindiego
-    memory: 128M
+    memory: 256M
     domain: mybluemix.net #Aquí puede ser algo como diegordz.com de tal manera que sea
     host: sociallogindiego
+    path: .
+    command: npm start
     #sociallogindiego.mybluemix.net
